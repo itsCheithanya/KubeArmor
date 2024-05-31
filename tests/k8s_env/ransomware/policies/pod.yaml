@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: privileged-pod4
+  name: privileged-pod
   labels:
     app: privileged-pod
 spec:
