@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: block-nsenter-in-privileged-pods
+spec:
+  selector:
+    matchLabels:
+      app: privileged-pod
+  process:
+    matchPaths:
+    - path: /usr/bin/nsenter
+    - path: /bin/nsenter
+    - path: /usr/local/bin/nsenter
+  action: Block
+  message: "Use of nsenter is blocked in privileged containers"
